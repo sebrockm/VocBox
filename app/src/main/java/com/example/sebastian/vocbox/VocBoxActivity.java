@@ -32,6 +32,9 @@ public class VocBoxActivity extends AppCompatActivity {
             for (int i = 0; i < mVocCaseModels.length; ++i) {
                 output.writeObject(mVocCaseModels[i]);
             }
+
+            TabHost tabHost = findViewById(android.R.id.tabhost);
+            output.writeObject(tabHost.getCurrentTabTag());
         } catch (IOException e) {
             Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG);
         }
@@ -48,6 +51,10 @@ public class VocBoxActivity extends AppCompatActivity {
                 mVocCaseModels[i] = (VocCaseModel)input.readObject();
                 mVocCaseViews[i].setTextFromModel(mVocCaseModels[i]);
             }
+
+            TabHost tabHost = findViewById(android.R.id.tabhost);
+            String currentTabTag = (String) input.readObject();
+            tabHost.setCurrentTabByTag(currentTabTag);
         } catch (FileNotFoundException e) {
 
         } catch (IOException | ClassNotFoundException e) {
@@ -70,6 +77,25 @@ public class VocBoxActivity extends AppCompatActivity {
         }
     }
 
+    private static final String currentCaseTab = "currentCaseTab";
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        TabHost tabHost = findViewById(android.R.id.tabhost);
+        savedInstanceState.putString(currentCaseTab, tabHost.getCurrentTabTag());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        TabHost tabHost = findViewById(android.R.id.tabhost);
+        String currentTabTag = savedInstanceState.getString(currentCaseTab, "");
+        if (!currentTabTag.isEmpty())
+            tabHost.setCurrentTabByTag(currentTabTag);
+    }
 
     public void onClickImportFile(View view) {
         if (view.getId() != R.id.importFile)

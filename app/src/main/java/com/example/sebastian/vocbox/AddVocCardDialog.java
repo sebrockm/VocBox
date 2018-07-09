@@ -35,6 +35,10 @@ public class AddVocCardDialog extends Dialog {
                 String foreignWord = foreignTextInput.getText().toString();
                 mVocBoxActivity.addVocCard(new VocCaseModel.VocCardModel(nativeWord, foreignWord));
 
+                nativeTextInput.getText().clear();
+                foreignTextInput.getText().clear();
+
+                nativeTextInput.requestFocus();
                 return true;
             }
         });

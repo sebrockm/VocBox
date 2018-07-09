@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VocBoxActivity">
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/cardCount1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toTopOf="@+id/nativeText1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <TextView
+                            android:id="@+id/nativeText1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:clickable="true"
+                            android:onClick="onClickNative"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.322" />
+
+                        <TextView
+                            android:id="@+id/foreignText1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/nativeText1"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <Button
+                            android:id="@+id/correct1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickCorrect"
+                            android:text="Richtig"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/incorrect1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText1" />
+
+                        <Button
+                            android:id="@+id/incorrect1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickIncorrect"
+                            android:text="Falsch"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/correct1"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText1" />
+
+                        <Button
+                            android:id="@+id/importFile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:onClick="onClickImportFile"
+                            android:text="Importieren"
+                            android:textAllCaps="false"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/cardCount2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toTopOf="@+id/nativeText2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <TextView
+                            android:id="@+id/nativeText2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:clickable="true"
+                            android:onClick="onClickNative"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.322" />
+
+                        <TextView
+                            android:id="@+id/foreignText2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/nativeText2"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <Button
+                            android:id="@+id/correct2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickCorrect"
+                            android:text="Richtig"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/incorrect2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText2" />
+
+                        <Button
+                            android:id="@+id/incorrect2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickIncorrect"
+                            android:text="Falsch"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/correct2"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText2" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/cardCount3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toTopOf="@+id/nativeText3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <TextView
+                            android:id="@+id/nativeText3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:clickable="true"
+                            android:onClick="onClickNative"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.322" />
+
+                        <TextView
+                            android:id="@+id/foreignText3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/nativeText3"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <Button
+                            android:id="@+id/correct3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickCorrect"
+                            android:text="Richtig"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/incorrect3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText3" />
+
+                        <Button
+                            android:id="@+id/incorrect3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickIncorrect"
+                            android:text="Falsch"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/correct3"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText3" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/cardCount4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toTopOf="@+id/nativeText4"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <TextView
+                            android:id="@+id/nativeText4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:clickable="true"
+                            android:onClick="onClickNative"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.322" />
+
+                        <TextView
+                            android:id="@+id/foreignText4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/nativeText4"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <Button
+                            android:id="@+id/correct4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickCorrect"
+                            android:text="Richtig"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/incorrect4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText4" />
+
+                        <Button
+                            android:id="@+id/incorrect4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickIncorrect"
+                            android:text="Falsch"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/correct4"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText4" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/cardCount5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toTopOf="@+id/nativeText5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <TextView
+                            android:id="@+id/nativeText5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:clickable="true"
+                            android:onClick="onClickNative"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.322" />
+
+                        <TextView
+                            android:id="@+id/foreignText5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:text="TextView"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/nativeText5"
+                            app:layout_constraintVertical_bias="0.32" />
+
+                        <Button
+                            android:id="@+id/correct5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickCorrect"
+                            android:text="Richtig"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/incorrect5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText5" />
+
+                        <Button
+                            android:id="@+id/incorrect5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:onClick="onClickIncorrect"
+                            android:text="Falsch"
+                            android:textAllCaps="false"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/correct5"
+                            app:layout_constraintTop_toBottomOf="@+id/foreignText5" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</android.support.constraint.ConstraintLayout>

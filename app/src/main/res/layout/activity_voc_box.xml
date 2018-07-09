@@ -150,6 +150,18 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <Button
+                            android:id="@+id/addCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            android:onClick="onClickAddCard"
+                            android:text="Karte hinzufügen"
+                            android:textAllCaps="false"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
                     </android.support.constraint.ConstraintLayout>
                 </LinearLayout>
 

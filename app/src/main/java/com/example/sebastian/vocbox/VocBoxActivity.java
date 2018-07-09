@@ -97,6 +97,20 @@ public class VocBoxActivity extends AppCompatActivity {
             tabHost.setCurrentTabByTag(currentTabTag);
     }
 
+    public void onClickAddCard(View view) {
+        if (view.getId() != R.id.addCard)
+            return;
+
+        AddVocCardDialog addVocCardDialog = new AddVocCardDialog(this);
+        addVocCardDialog.show();
+    }
+
+    public void addVocCard(VocCaseModel.VocCardModel vocCard) {
+        mVocCaseModels[0].addCardAtRandomPosition(vocCard);
+        mVocCaseViews[0].setTextFromModel(mVocCaseModels[0]);
+        Toast.makeText(this, "Added card " + vocCard.getNative() + " ; " + vocCard.getForeign(), Toast.LENGTH_LONG).show();
+    }
+
     public void onClickImportFile(View view) {
         if (view.getId() != R.id.importFile)
             return;

@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
@@ -275,7 +274,10 @@ public class VocBoxActivity extends AppCompatActivity {
         if (mVocCaseModels[id].getCardCount() == 0)
             return;
 
-        mVocCaseModels[nextId].addCardAtRandomPosition(mVocCaseModels[id].removeCurrentCard());
+        if (nextId == 4)
+            mVocCaseModels[nextId].addCardAtBack(mVocCaseModels[id].removeCurrentCardNonRandomReplacement());
+        else
+            mVocCaseModels[nextId].addCardAtRandomPosition(mVocCaseModels[id].removeCurrentCardRandomReplacement());
         mVocCaseViews[id].setTextFromModel(mVocCaseModels[id]);
         mVocCaseViews[nextId].setTextFromModel(mVocCaseModels[nextId]);
         mVocCaseModels[id].setIsAnswerOpen(false);
@@ -295,8 +297,10 @@ public class VocBoxActivity extends AppCompatActivity {
 
         if (id == 0)
             mVocCaseModels[0].recycleCurrentCard();
+        else if (id == 4)
+            mVocCaseModels[0].addCardAtRandomPosition(mVocCaseModels[id].removeCurrentCardNonRandomReplacement());
         else
-            mVocCaseModels[0].addCardAtRandomPosition(mVocCaseModels[id].removeCurrentCard());
+            mVocCaseModels[0].addCardAtRandomPosition(mVocCaseModels[id].removeCurrentCardRandomReplacement());
 
         mVocCaseViews[id].setTextFromModel(mVocCaseModels[id]);
         mVocCaseViews[0].setTextFromModel(mVocCaseModels[0]);

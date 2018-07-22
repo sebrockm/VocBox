@@ -48,9 +48,15 @@ public class VocCaseModel implements Serializable {
         return mCurrentCards.getFirst();
     }
 
-    VocCardModel removeCurrentCard() {
+    VocCardModel removeCurrentCardRandomReplacement() {
         if (!mBackendCards.isEmpty())
             mCurrentCards.addLast(mBackendCards.remove(random.nextInt(mBackendCards.size())));
+        return mCurrentCards.removeFirst();
+    }
+
+    VocCardModel removeCurrentCardNonRandomReplacement() {
+        if (!mBackendCards.isEmpty())
+            mCurrentCards.addLast((mBackendCards.removeFirst()));
         return mCurrentCards.removeFirst();
     }
 
@@ -67,6 +73,13 @@ public class VocCaseModel implements Serializable {
         } else {
             mBackendCards.add(position - mMaxCurrentCardCount, card);
         }
+    }
+
+    void addCardAtBack(VocCardModel card) {
+        if (mCurrentCards.size() < mMaxCurrentCardCount)
+            mCurrentCards.addLast(card);
+        else
+            mBackendCards.addLast(card);
     }
 
     boolean isAnswerOpen() {
